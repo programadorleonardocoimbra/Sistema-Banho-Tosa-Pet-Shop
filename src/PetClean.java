@@ -1,9 +1,9 @@
 public class PetClean {
 
-    private boolean clean;
-    private int water;
-    private int shampoo;
-    private Pet pet;
+    private boolean clean = true;
+    private int water = 30;
+    private int shampoo = 10;
+    private static Pet pet;
 
     public void takeAShower() {
         if (this.pet == null) {
@@ -13,7 +13,7 @@ public class PetClean {
         this.water -= 10;
         this.shampoo -= 2;
         pet.setClean(true);
-        System.out.println("O pet " + pet.getName() + "está limpo!");
+        System.out.println("O pet " + pet.getName() + " foi removido da máquina!");
     }
 
     //Adicionar água
@@ -48,7 +48,7 @@ public class PetClean {
 
     //Verificar se tem PET no banho
 
-    public boolean hasPet() {
+    public static boolean hasPet() {
         return pet != null;
     }
 
@@ -60,16 +60,17 @@ public class PetClean {
         }
 
         if (hasPet()) {
-            System.out.println("O pet " + this.pet.getName() + "está na máquina nesse momento");
+            System.out.println("O pet " + this.pet.getName() + " está na máquina nesse momento");
             return;
         }
 
         this.pet = pet;
+        System.out.println("O pet " + pet.getName() + " foi colocado na máquina!");
     }
 
     public void removePet() {
         this.clean = this.pet.isClean();
-        System.out.println("O pet " + this.pet.getName() + "está limpo!" );
+        System.out.println("O pet " + this.pet.getName() + " Foi tirado da Máquina!");
         this.pet = null;
     }
 
